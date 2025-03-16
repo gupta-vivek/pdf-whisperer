@@ -3,11 +3,14 @@ An AI powered chatbot that answers customer queries by retrieving relevant infor
 
 ## Roadmap for the first cut (will be continually updating as the project progresses)
 
-- [ ] Extract the text (in progress)
+- [x] Extract the text
+  Text is extracted using PyMuPDF
 
-- [ ] Chunk the data
+- [x] Chunk the data
+  Document is chunked into sections based on the content page. If the section is large, it is further divided by
+  semantic chunking
 
-- [ ] Embed and store
+- [ ] Embed and store (in progress)
 
 - [ ] Query the LLM
 
