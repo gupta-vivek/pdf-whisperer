@@ -14,6 +14,7 @@ def create_embeddings(documents):
     document_embeddings = []
     for i, doc in enumerate(documents):
         doc["text_vector"] = model.encode(doc["text"]).tolist()
+        doc["section_vector"] = model.encode(doc["section"]).tolist()
         document_embeddings.append(doc)
 
     return document_embeddings
