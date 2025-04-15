@@ -7,9 +7,12 @@ from sentence_transformers import SentenceTransformer
 
 es_url = "http://localhost:9200"
 es_client = Elasticsearch(es_url)
+model = SentenceTransformer('bert-base-german-dbmdz-uncased')
 
 
-def hybrid_query(search_query: str) -> dict:
+def hybrid_query(search_query, **kwargs) -> dict:
+    size = kwargs.get("size", 1)
+
     """
     This function generate a vector representation for the given search query needed for hybrid search.
     :param search_query: Search query
@@ -18,7 +21,7 @@ def hybrid_query(search_query: str) -> dict:
         search parameters and vector search configuration for passing to Elasticsearch.
     :rtype: dict
     """
-    model = SentenceTransformer('bert-base-german-dbmdz-uncased')
+
     vector = model.encode(search_query)
     return {
         "query": {
@@ -40,7 +43,7 @@ def hybrid_query(search_query: str) -> dict:
             "num_candidates": 100,
             "boost": 0.5
         },
-        "size": 5,
+        "size": size,
     }
 
 
@@ -89,7 +92,7 @@ def hybrid_search(search_query: str, size: int = 1):
         url=es_url
     )
 
-    hybrid_results = hybrid_retriever.invoke(search_query, size=size)
+    hybrid_results = hybrid_retriever.invoke(input=search_query, config=None, size=size)
 
     return hybrid_results
 
