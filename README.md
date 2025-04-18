@@ -1,16 +1,45 @@
-# PDF Whisperer
-An AI powered chatbot that answers customer queries by retrieving relevant information from a company's database.
+---
 
-## Roadmap for the first cut (will be continually updating as the project progresses)
+# 📄 PDF Whisperer
+**PDF Whisperer** is an AI-powered chatbot designed to answer customer queries by retrieving relevant information from the provided pdf. It processes PDF documents, extracts and chunks their content, embeds the data, and utilizes a Large Language Model (LLM) to provide accurate responses. For this project, a PDF about Occupational Safety on Agriculture and Safety is used. The document is in German.
 
-- [x] Extract the text
-  - Text is extracted using PyMuPDF
-- [x] Chunk the data
-  - Document is chunked into sections based on the content page. If the section is large, it is further divided by
-    semantic chunking.
+---
 
-- [ ] Embed and store (in progress)
+## 🚀 Features
 
-- [ ] Query the LLM
+- **Text Extraction** PyMuPDF is used to extract text from PDF document.
+- **Content Chunking** Documents are divided into sections based on the table of contents; large sections are further
+  split using semantic chunking.
+- **Embedding**: Data is embedded using Hugging Face(Sentence Transformer) multi-lingual model.
+- **Search/Retrieval**: Elasticsearch is used for Search/Retrieval part. Hybrid search combining text and vector search
+  is used.
+- **LLM Integration** Deepseek is used to generate responses based on the retrieved data.
+- **Chatbot Interface**:  Streamlit is used for chatbot interface for users to ask questions and receive answer.
 
-- [ ] Build the chatbot
+## 📁 Project Structure
+
+
+
+```plaintext
+pdf-whisperer/
+├── data/               # Directory for storing PDF files and processed data
+├── src/                # Source code for the application
+├── tests/              # Test cases and evaluation(In progress)
+├── .gitignore          # Specifies files to ignore in version control
+├── LICENSE             # MIT License file
+└── README.md           # Project documentation
+```
+
+---
+
+## 📅 Roadmap
+
+- [x] **Text Extraction**: Implement PDF text extraction using PyMPDF.
+- [x] **Content Chunkin**: Develop logic to split documents based on the table of contents and semantic boundaries.
+- [x] **Embedding and Search/Retrieval**: Integrate embedding models and set up a search/retrieval mechanism.
+- [x] **LLM Integration**: Connect to a Large Language Model for generating resposes.
+- [x] **Chatbot Interface**: Build a user-friendly chatbot interface for interacion.
+- [ ] **Testing and Evaluation**: Add methods to test and evaluate RAG(In Progress)
+- [ ] **Monitoring**: Monitoring and feedback
+
+
