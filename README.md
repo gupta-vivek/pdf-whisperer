@@ -1,7 +1,10 @@
----
 
 # 📄 PDF Whisperer
-**PDF Whisperer** is an AI-powered chatbot designed to answer customer queries by retrieving relevant information from the provided pdf. It processes PDF documents, extracts and chunks their content, embeds the data, and utilizes a Large Language Model (LLM) to provide accurate responses. For this project, a PDF about Occupational Safety on Agriculture and Safety is used. The document is in German.
+
+PDF Whisperer is an AI-powered chatbot designed to answer customer queries by retrieving relevant information from the
+provided pdf. It processes PDF documents, extracts and chunks their content, embeds the data, and utilizes a Large
+Language Model (LLM) to provide accurate responses. For this project, a PDF about Occupational Safety on Agriculture and
+Safety is used. The document is in German.
 
 ---
 
@@ -16,9 +19,9 @@
 - **LLM Integration** Deepseek is used to generate responses based on the retrieved data.
 - **Chatbot Interface**:  Streamlit is used for chatbot interface for users to ask questions and receive answer.
 
-## 📁 Project Structure
+---
 
-
+## 📁 Project Structure
 
 ```plaintext
 pdf-whisperer/
