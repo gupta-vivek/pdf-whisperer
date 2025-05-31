@@ -1,21 +1,28 @@
+import os
 import sys
-from pathlib import Path
 
+import torch
+
+# Add project root to sys.path manually
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+torch.classes.__path__ = []  # Streamlit pytorch introspection fix
 import streamlit as st
 from openai import OpenAI
-
-from hybrid_search import hybrid_search
-
-# Add project root to Python path (before any imports)
-sys.path.insert(0, str(Path(__file__).parent.parent))
-
 from config.config import Config
+from hybrid_elastic import hybrid_search, init_elastic_search
 
-client = OpenAI(api_key=Config.api_key, base_url=Config.base_url)
 
-
-def build_prompt(query):
-    search_results = hybrid_search(query, size=1)
+def build_prompt(query, retriever):
+    """
+    Build a prompt from the given query and retriever.
+    :param query:
+    :param retriever:
+    :return:
+    """
+    search_results = hybrid_search(retriever, query, size=1)
     prompt_template = Config.prompt_template
 
     context = ""
@@ -29,6 +36,9 @@ def build_prompt(query):
 
 
 if __name__ == "__main__":
+    client = OpenAI(api_key=Config.api_key, base_url=Config.base_url)
+    retriever = init_elastic_search()
+
     st.title("PDF Whisperer")
 
     if "messages" not in st.session_state:
@@ -44,8 +54,8 @@ if __name__ == "__main__":
             st.markdown(prompt)
 
         with st.chat_message("assistant"):
-            stream = client.chat.completions.create(model=Config.model,
-                                                    messages=[{"role": m["role"], "content": build_prompt(m["content"])}
-                                                              for m in st.session_state.messages], stream=True)
+            stream = client.chat.completions.create(model=Config.model, messages=[
+                {"role": m["role"], "content": build_prompt(m["content"], retriever)} for m in
+                st.session_state.messages], stream=True)
             response = st.write_stream(stream)
         st.session_state.messages.append({"role": "assistant", "content": response})

@@ -16,8 +16,8 @@ Safety is used. The document is in German.
 - **Embedding**: Data is embedded using Hugging Face(Sentence Transformer) multi-lingual model.
 - **Search/Retrieval**: Elasticsearch is used for Search/Retrieval part. Hybrid search combining text and vector search
   is used.
-- **LLM Integration** Deepseek is used to generate responses based on the retrieved data.
-- **Chatbot Interface**:  Streamlit is used for chatbot interface for users to ask questions and receive answer.
+- **LLM Integration**: Deepseek is used to generate responses based on the retrieved data.
+- **Chatbot Interface**: Streamlit is used for chatbot interface for users to ask questions and receive answer.
 
 ---
 
@@ -35,14 +35,19 @@ pdf-whisperer/
 
 ---
 
-## 📅 Roadmap
+## 📅 Roadmap for First Cut - Completed
 
 - [x] **Text Extraction**: Implement PDF text extraction using PyMPDF.
 - [x] **Content Chunkin**: Develop logic to split documents based on the table of contents and semantic boundaries.
 - [x] **Embedding and Search/Retrieval**: Integrate embedding models and set up a search/retrieval mechanism.
 - [x] **LLM Integration**: Connect to a Large Language Model for generating resposes.
 - [x] **Chatbot Interface**: Build a user-friendly chatbot interface for interacion.
-- [ ] **Testing and Evaluation**: Add methods to test and evaluate RAG(In Progress)
+
+---
+
+## Future Plans
+
+- [ ] **Testing and Evaluation**: Add methods to test and evaluate RAG
 - [ ] **Monitoring**: Monitoring and feedback
 
 
