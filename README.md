@@ -40,8 +40,8 @@ pdf-whisperer/
 - [x] **Text Extraction**: Implement PDF text extraction using PyMPDF.
 - [x] **Content Chunkin**: Develop logic to split documents based on the table of contents and semantic boundaries.
 - [x] **Embedding and Search/Retrieval**: Integrate embedding models and set up a search/retrieval mechanism.
-- [x] **LLM Integration**: Connect to a Large Language Model for generating resposes.
-- [x] **Chatbot Interface**: Build a user-friendly chatbot interface for interacion.
+- [x] **LLM Integration**: Connect to a Large Language Model for generating responses.
+- [x] **Chatbot Interface**: Build a user-friendly chatbot interface for interaction.
 
 ---
 

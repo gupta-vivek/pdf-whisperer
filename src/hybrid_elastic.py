@@ -62,7 +62,7 @@ def init_elastic_search():
     return hybrid_retriever
 
 
-def hybrid_search(hybrid_retriever, search_query, size):
+def hybrid_search_elastic(hybrid_retriever, search_query, size=1):
     """
     Do hybrid search
 
@@ -80,5 +80,5 @@ if __name__ == "__main__":
         "Welche sind die wichtigsten physischen und psychischen Gesundheitsrisiken, denen Landwirte aufgrund "
         "ihrer Arbeitsbedingungen ausgesetzt sind, und wie geht die Arbeitsmedizin mit diesen Herausforderungen um?")
     retriever = init_elastic_search()
-    results = hybrid_search(retriever, search_query, size=3)
+    results = hybrid_search_elastic(retriever, search_query, size=3)
     print(results)

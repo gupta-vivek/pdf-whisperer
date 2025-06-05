@@ -1,5 +1,7 @@
 {
   "model": "deepseek-chat",
   "base_url": "https://api.deepseek.com",
-  "prompt_template": "\"\"\"\nYou're a customer service agent. Answer the QUESTION based on the CONTEXT provided. Use only the facts from the CONTEXT when answering the QUESTION.\n\nQUESTION: {question}\n\nCONTEXT: {context}\n\"\"\""
+  "prompt_template": "\"\"\"\nYou're a customer service agent. Answer the QUESTION based on the CONTEXT provided. Use only the facts from the CONTEXT when answering the QUESTION.\n\nQUESTION: {question}\n\nCONTEXT: {context}\n\"\"\"",
+  "lance_db_uri": "../data/lance_db",
+  "lance_db_table": "documents"
 }

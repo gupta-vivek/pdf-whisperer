@@ -15,7 +15,10 @@ with open(CONFIG_DIR / 'config.json', 'r') as file:
 
 # Accessing configuration values
 class Config:
+    config_dir = CONFIG_DIR
     api_key = os.environ['DEEPSEEK_API_KEY']
     model = config['model']
     base_url = config['base_url']
     prompt_template = config['prompt_template']
+    lance_db_uri = config['lance_db_uri']
+    lance_db_table = config['lance_db_table']
