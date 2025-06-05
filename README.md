@@ -14,7 +14,7 @@ Safety is used. The document is in German.
 - **Content Chunking** Documents are divided into sections based on the table of contents; large sections are further
   split using semantic chunking.
 - **Embedding**: Data is embedded using Hugging Face(Sentence Transformer) multi-lingual model.
-- **Search/Retrieval**: Elasticsearch is used for Search/Retrieval part. Hybrid search combining text and vector search
+- **Search/Retrieval**: LanceDB is used for Search/Retrieval part. Hybrid search combining text and vector search
   is used.
 - **LLM Integration**: Deepseek is used to generate responses based on the retrieved data.
 - **Chatbot Interface**: Streamlit is used for chatbot interface for users to ask questions and receive answer.
